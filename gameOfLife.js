@@ -1,7 +1,8 @@
-let col, row;
 
 function setup() {
-  createCanvas(500, 500);
+  let canvas = createCanvas(500, 500);
+  //canvasDiv - ID of Div in HTML page - places canvas here 
+  canvas.parent('canvasDiv')
   cellSize = 5;
   frameRate(10);
   //create grid using 2d array to store state of cells
@@ -14,8 +15,13 @@ function setup() {
       cells[x][y] = new Cell(x, y, cellSize, Math.floor(Math.random() * 2));
     }
   }
+  //Add button to reset simulation (often reaches a static state)
+  let button = createButton("Reset");
+  button.parent("canvasDiv");
+  button.position(65, height+20);
+  button.addClass("btn btn-primary");
+  button.mousePressed(reset);
 }
-
 function draw() {
   //Loop through the whole grid -> Draw cell, then check new cell status based on rules
   for (let x = 0; x < row; x++) {
@@ -31,6 +37,8 @@ function draw() {
     }
   }
 }
+
+
 
 class Cell {
   constructor(x, y, cellSize, state) {
@@ -87,7 +95,19 @@ class Cell {
       }
     }
   }
+
   nextItteration() {
     this.state = this.nextState;
+  }
+}
+
+//On button press, create new 2d array and new cells 
+function reset() {
+  cells = new Array(col);
+  for (let x = 0; x < col; x++) {
+    cells[x] = new Array(row);
+    for (let y = 0; y < row; y++) {
+      cells[x][y] = new Cell(x, y, cellSize, Math.floor(Math.random() * 2));
+    }
   }
 }
