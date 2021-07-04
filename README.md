@@ -33,7 +33,7 @@ This creates a connected grid that can be visualised as a torus:
 
 ## Testing
 
-Once developed this implementation was tested on a small grid seeded with three horizontally adjacent live cells. After the rules are applied these cells should switch repeatedly between 3 vertically aligned live cells and three horizontally aligned live cells. A unit test (the function test()) was added to check this programmatically. This behaviour was also observed and capture as seen below:
+Once developed this implementation was tested on a small grid seeded with three horizontally adjacent live cells. After the rules are applied these cells should switch repeatedly between 3 vertically aligned live cells and three horizontally aligned live cells. A unit test (the function test()) was added to check this programmatically. This behaviour was also observed and captured as seen below:
 
 
 ![Gif showing three vertical cells switching to 3 horizontal cells and back each iteration](simpleTest.gif)
