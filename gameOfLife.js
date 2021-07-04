@@ -111,3 +111,28 @@ function reset() {
     }
   }
 }
+
+//Simple test function to check desired behaviour 
+function test(){
+  //Create 5 x 5 grid of dead cells 
+  let arr = new Array(5);
+  for (let x = 0; x < 5; x++) {
+    arr[x] = new Array(5);
+    for (let y = 0; y < 5; y++) {
+      arr[x][y] = new Cell(x, y, 20, 0);
+    }
+  }
+  //Create 3 live cells in horizontal line on
+  arr[1][2].state = 1;
+  arr[2][2].state = 1;
+  arr[3][2].state = 1;
+  
+  //update cells based on rules 
+  for (let x = 0; x < arr.length; x++) {
+    for (let y = 0; y < arr[0].length; y++) {
+      arr[x][y].update(arr);
+    }
+  }
+  //Check if lives sells for next itteration have switched to 3 vertical cells 
+  return   arr[1][2].nextState == 0 && arr[3][2].nextState == 0 && arr[2][2].nextState == 1 && arr[2][1].nextState == 1 && arr[2][3].nextState == 1;
+}
