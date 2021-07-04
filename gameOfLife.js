@@ -1,4 +1,3 @@
-
 function setup() {
   let canvas = createCanvas(500, 500);
   //canvasDiv - ID of Div in HTML page - places canvas here 
@@ -22,6 +21,7 @@ function setup() {
   button.addClass("btn btn-primary");
   button.mousePressed(reset);
 }
+
 function draw() {
   //Loop through the whole grid -> Draw cell, then check new cell status based on rules
   for (let x = 0; x < row; x++) {
@@ -37,8 +37,6 @@ function draw() {
     }
   }
 }
-
-
 
 class Cell {
   constructor(x, y, cellSize, state) {
@@ -126,7 +124,6 @@ function test(){
   arr[1][2].state = 1;
   arr[2][2].state = 1;
   arr[3][2].state = 1;
-  
   //update cells based on rules 
   for (let x = 0; x < arr.length; x++) {
     for (let y = 0; y < arr[0].length; y++) {
